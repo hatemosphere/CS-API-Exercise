@@ -10,7 +10,7 @@ If you have any questions, feel free to reach out to us.
 This exercise is split in several subtasks. We are curious to see where you feel most comfortable and where you struggle.
 
 ### 0. Fork this repository
-All your changes should be made in a fork of this repository, so you can open a Merge Request when you're done.
+All your changes should be made in a *private* fork of this repository. When you're done please share your fork with our group *ContainerSolutions* (Settings -> Members -> Share with group)
 
 ### 1. Setup & fill database
 In the root of this project you'll find a csv-file with passenger data from the Titanic. Create a database and fill it with the given data. SQL or NoSQL is your choice.
