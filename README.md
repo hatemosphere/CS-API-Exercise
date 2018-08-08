@@ -22,6 +22,10 @@ Tech stack and language are your choice.
 ### 3. Dockerize
 Automate setup of your database & API with Docker, so it can be run everywhere comfortably with one or two commands
 
+#### Hints
+
+- [Docker Install](https://www.docker.com/get-started)
+
 ### 4. Deploy to Kubernetes
 Enable your Docker containers to be deployed on a Kubernetes cluster.
 
