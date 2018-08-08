@@ -25,5 +25,11 @@ Automate setup of your database & API with Docker, so it can be run everywhere c
 ### 4. Deploy to Kubernetes
 Enable your Docker containers to be deployed on a Kubernetes cluster.
 
+#### Hints
+
+- Don't have a Kubernetes cluster to test against?
+  - [MiniKube](https://kubernetes.io/docs/setup/minikube/) (free, local)
+  - [GKE](https://cloud.google.com/kubernetes-engine/) (more realistic deployment, may cost something)
+
 ### 5. Whatever you can think of
 Do you have more ideas to optimize your workflow or automate deployment? Feel free to go wild and dazzle us with your solutions.
