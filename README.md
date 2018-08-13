@@ -10,7 +10,10 @@ If you have any questions, feel free to reach out to us.
 This exercise is split in several subtasks. We are curious to see where you feel most comfortable and where you struggle.
 
 ### 0. Fork this repository
-All your changes should be made in a **private** fork of this repository. When you're done please share your fork with our group **ContainerSolutions** (Settings -> Members -> Share with group)
+All your changes should be made in a **private** fork of this repository. When you're done please, please:
+* Share your fork with the **container-solutions-pr-checkers** user (Settings -> Members -> Share with Member)
+* Make sure that you grant this user the Reporter role, so that our reviewers can check out the code using Git.
+* Reply to the email that asked you to do this API exercise, with a link to the repository that the container-solutions-pr-checkers user now should have access to.
 
 ### 1. Setup & fill database
 In the root of this project you'll find a csv-file with passenger data from the Titanic. Create a database and fill it with the given data. SQL or NoSQL is your choice.
