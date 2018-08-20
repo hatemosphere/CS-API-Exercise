@@ -23,7 +23,14 @@ Create an API that allows reading & writing (maybe even updating & deleting) dat
 Tech stack and language are your choice.
 
 ### 3. Dockerize
-Automate setup of your database & API with Docker, so it can be run everywhere comfortably with one or two commands
+Automate setup of your database & API with Docker, so it can be run everywhere comfortably with one or two commands.  
+The following build tools are acceptable:
+ * docker
+ * docker-compose
+ * groovy
+ * minikube (see 4.)
+
+No elaborate makefiles please.
 
 #### Hints
 
