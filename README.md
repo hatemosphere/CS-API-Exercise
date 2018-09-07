@@ -19,7 +19,7 @@ All your changes should be made in a **private** fork of this repository. When y
 In the root of this project you'll find a csv-file with passenger data from the Titanic. Create a database and fill it with the given data. SQL or NoSQL is your choice.
 
 ### 2. Create an API
-Create an API that allows reading & writing (maybe even updating & deleting) data from your database.
+Create an HTTP-API (e.g. REST) that allows reading & writing (maybe even updating & deleting) data from your database.
 Tech stack and language are your choice.
 
 ### 3. Dockerize
