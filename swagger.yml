@@ -1,0 +1,122 @@
+swagger: "2.0"
+info:
+  title: "Titanic"
+  version: "1.0"
+paths:
+  "/people":
+    get:
+      summary: "Get a list of all people"
+      operationId: "people.list"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/People"
+      produces:
+      - application/json
+      - text/html
+    post:
+      summary: "Add a person to the database"
+      operationId: "people.add"
+      parameters: 
+      - in: body
+        name: person
+        required: true
+        schema:
+          $ref: "#/definitions/PersonData"
+      responses:
+        200:
+          description: "Added"
+          schema:
+            $ref: "#/definitions/Person"
+      produces:
+        - application/json
+  "/people/{uuid}":
+    get:
+      summary: "Get information about one person"
+      operationId: "person.get"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Person"
+        404:
+          description: Not found
+      parameters: 
+      - in: path
+        required: true
+        name: uuid
+        type: string
+        format: uuid
+      produces:
+      - application/json
+      - text/html
+    put:
+      summary: "Update information about one person"
+      operationId: "person.update"
+      responses:
+        200:
+          description: Updated
+          schema:
+            $ref: "#/definitions/Person"
+        404:
+          description: Not found
+      parameters: 
+      - in: path
+        required: true
+        name: uuid
+        type: string
+        format: uuid
+      - in: body
+        name: person
+        required: true
+        schema:
+          $ref: "#/definitions/PersonData"          
+      produces:
+        - application/json
+    delete:
+      summary: "Delete this person"
+      operationId: "person.delete"
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not found
+      parameters: 
+      - in: path
+        required: true
+        name: uuid
+        type: string
+        format: uuid
+definitions:
+  People:
+    type: array
+    items:
+      $ref: "#/definitions/Person"
+  Person:
+    allOf:
+    - $ref: "#/definitions/PersonData"
+    - type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+  PersonData:
+    properties:
+      survived:
+        type: boolean
+      passengerClass:
+        type: integer
+      name:
+        type: string
+      sex:
+        type: string
+        enum: [male, female, other]
+      age:
+        type: integer
+      siblingsOrSpousesAboard:
+        type: integer
+      parentsOrChildrenAboard:
+        type: integer
+      fare:
+        type: number
