@@ -11,7 +11,7 @@ This exercise is split in several subtasks. We are curious to see where you feel
 
 ### 0. Fork this repository
 All your changes should be made in a **private** fork of this repository. When you're done please, please:
-* Share your fork with the **container-solutions-test**** user (Settings -> Members -> Share with Member)
+* Share your fork with the **container-solutions-test** user (Settings -> Members -> Share with Member)
 * Make sure that you grant this user the Reporter role, so that our reviewers can check out the code using Git.
 * Reply to the email that asked you to do this API exercise, with a link to the repository that the **container-solutions-test** user now should have access to.
 
