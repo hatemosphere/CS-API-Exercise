@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: api-passengers-mongo-seeder
+  namespace: api-passengers
+spec:
+  backoffLimit: 1
+  completions: 1
+  parallelism: 1
+  template:
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: global-config
+        image: hatemospher3/api-passengers-mongo-seeder:0.0.2
+        imagePullPolicy: IfNotPresent
+        name: api-passengers-mongo-seeder
+        resources:
+          requests:
+            cpu: 125m
+            memory: 512Mi
+          limits:
+            memory: 512Mi
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 15
