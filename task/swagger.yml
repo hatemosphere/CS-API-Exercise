@@ -18,7 +18,7 @@ paths:
     post:
       summary: "Add a person to the database"
       operationId: "people.add"
-      parameters: 
+      parameters:
       - in: body
         name: person
         required: true
@@ -42,7 +42,7 @@ paths:
             $ref: "#/definitions/Person"
         404:
           description: Not found
-      parameters: 
+      parameters:
       - in: path
         required: true
         name: uuid
@@ -61,7 +61,7 @@ paths:
             $ref: "#/definitions/Person"
         404:
           description: Not found
-      parameters: 
+      parameters:
       - in: path
         required: true
         name: uuid
@@ -71,7 +71,7 @@ paths:
         name: person
         required: true
         schema:
-          $ref: "#/definitions/PersonData"          
+          $ref: "#/definitions/PersonData"
       produces:
         - application/json
     delete:
@@ -82,7 +82,7 @@ paths:
           description: OK
         404:
           description: Not found
-      parameters: 
+      parameters:
       - in: path
         required: true
         name: uuid
