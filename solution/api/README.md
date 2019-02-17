@@ -12,9 +12,11 @@ So since I'm not usually coding APIs from scratch, this was a kind of exploratio
 
 ### Potential improvements (the most obvious ones)
 
-* [CODE] Rewrite *Update* handler so it won't look that crappy.
+* [CODE] Write meaningful unit and integration tests ¯\\\_(ツ)_/¯
+* [CODE] Rewrite *Update* handler so it does not look that crappy.
+* [CODE] Structure and improve application configuration (env variables -> configuration file -> k\v configuration service)
 * [CODE] Improve in-app logging (*JSON* format?) and feedback for the client (eg. *JSON* payload validation errors in addition to *400* response code).
-* [CODE] Implement durable logic to maintain *MongoDB* session (some of mgo's calls can cause panic, so it kinda works fine out-of-the-box, but for production, usage can be slightly improved). Also, get rid of *service ordering* requirement by implementing *retries* and *circuit breakers* when talking with *MongoDB*
+* [CODE] Implement durable logic to maintain *MongoDB* session (some of mgo's calls can cause panic, so it kinda works fine out-of-the-box, but for production, usage can be slightly improved). Also, get rid of *service ordering* requirement by implementing verbose *retries* and *circuit breakers* when talking with *MongoDB*
 * [CODE] Add transport layer *TLS\SSL* encryption when talking with *MongoDB*
 * [CODE] To be perfectly honest and transparent - it's not like I'm doing full-stack gigs every day, so it could take another couple of hours to implement simple *Web UI* for this *API* without having a regular practice.
 * [CODE] Instrument code with *Prometheus* metrics
@@ -24,3 +26,5 @@ So since I'm not usually coding APIs from scratch, this was a kind of exploratio
 * [K8S] Template *Kubernetes* manifests with *Helm\kustomize\whatever* (*kustomize* is integrated into newer *kubectl* versions, *Helm* is not just a templating engine and it has its own pros and cons)
 * [K8S] Think about proper *readiness\liveness* probes - eg. implement */healthz* endpoint and decide if it's needed to include *MongoDB* connectivity check. This is a big holy war topic - some of the big companies are not using *readiness\liveness* at all intentionally - in some cases, they cause more issues than they can solve.
 * [K8S] *HorizontalPodAutoscaler* based on *Prometheus* app metrics (*custom metrics* via adapter) or the ones from *Ingress* (*object metrics*)
+
+* [CODE] Potentially go mad untill you achieve 101% *container and Kubernetes nativeness* with Watch method on API via WebSockets, hot config reloads
