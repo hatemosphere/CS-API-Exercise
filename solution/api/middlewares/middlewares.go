@@ -1,8 +1,8 @@
 package middlewares
 
 import (
-	"../db"
 	"github.com/gin-gonic/gin"
+	"gitlab.com/hatemosphere/API-Exercise/solution/api/db"
 )
 
 func Connect(c *gin.Context) {

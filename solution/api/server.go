@@ -1,10 +1,10 @@
 package main
 
 import (
-	"./db"
-	"./handlers/passengers"
-	"./middlewares"
 	"github.com/gin-gonic/gin"
+	"gitlab.com/hatemosphere/API-Exercise/solution/api/db"
+	"gitlab.com/hatemosphere/API-Exercise/solution/api/handlers/passengers"
+	"gitlab.com/hatemosphere/API-Exercise/solution/api/middlewares"
 )
 
 const (

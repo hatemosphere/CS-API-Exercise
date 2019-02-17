@@ -3,10 +3,10 @@ package passengers
 import (
 	"net/http"
 
-	"../../models"
 	"github.com/gin-gonic/gin"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
+	"gitlab.com/hatemosphere/API-Exercise/solution/api/models"
 )
 
 func List(c *gin.Context) {
