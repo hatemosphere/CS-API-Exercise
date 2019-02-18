@@ -11,7 +11,7 @@ import (
 
 func List(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
-	passengers := []models.Passenger{}
+	var passengers []models.Passenger
 
 	err := db.C(models.CollectionPassengers).Find(nil).All(&passengers)
 	if err != nil {
@@ -24,7 +24,7 @@ func List(c *gin.Context) {
 func Create(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
 
-	passenger := models.Passenger{}
+	var passenger models.Passenger
 	err := c.BindJSON(&passenger)
 	if err != nil {
 		c.Error(err)
@@ -42,7 +42,7 @@ func Create(c *gin.Context) {
 func GetOne(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
 
-	passenger := models.Passenger{}
+	var passenger models.Passenger
 	oID := bson.ObjectIdHex(c.Param("_id"))
 	err := db.C(models.CollectionPassengers).FindId(oID).One(&passenger)
 	if err != nil {
@@ -67,7 +67,7 @@ func Delete(c *gin.Context) {
 func Update(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
 
-	passenger := models.Passenger{}
+	var passenger models.Passenger
 	err := c.Bind(&passenger)
 	if err != nil {
 		c.Error(err)

@@ -18,13 +18,14 @@ func init() {
 
 func main() {
 	router := gin.Default()
-
 	router.Use(middlewares.Connect)
-	router.GET(ApiPrefix+"/people/:_id", passengers.GetOne)
-	router.GET(ApiPrefix+"/people", passengers.List)
-	router.POST(ApiPrefix+"/people", passengers.Create)
-	router.DELETE(ApiPrefix+"/people/:_id", passengers.Delete)
-	router.PUT(ApiPrefix+"/people/:_id", passengers.Update)
+
+	group := router.Group(ApiPrefix + "/people")
+	group.GET("/:id", passengers.GetOne)
+	group.GET("/", passengers.List)
+	group.POST("/", passengers.Create)
+	group.DELETE("/:id", passengers.Delete)
+	group.PUT("/:id", passengers.Update)
 
 	router.Run(":" + Port)
 }

@@ -2,9 +2,7 @@ FROM golang:1.11.5 as builder
 
 WORKDIR /api
 COPY . ./
-RUN go get -d -v
 RUN CGO_ENABLED=0 GOOS=linux go build -a -o api .
-
 
 FROM debian:9.7-slim as runner
 
