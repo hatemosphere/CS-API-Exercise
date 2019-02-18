@@ -27,7 +27,8 @@ So since I'm not usually coding APIs from scratch, this was a kind of exploratio
 3. kubectl apply -f k8s-global-configmap.yml
 4. kubectl apply -f k8s-mongo-seed-job.yml
 5. kubectl apply -f k8s-api-deployment.yml
-6. kubectl delete ns api-passengers
+6. kubectl delete -f ./
+7. kubectl delete ns api-passengers
 
 ### Potential improvements (the most obvious ones)
 
