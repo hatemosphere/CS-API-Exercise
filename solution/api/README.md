@@ -14,8 +14,9 @@ So since I'm not usually coding APIs from scratch, this was a kind of exploratio
 
 ### Potential improvements (the most obvious ones)
 
-* [CODE] Write meaningful unit and integration tests ¯\\\_(ツ)_/¯
+* [CODE] Write more meaningful unit and integration tests ¯\\\_(ツ)_/¯
 * [CODE] Rewrite *Update* handler so it does not look that crappy.
+* [CODE] We're using *_id* instead of *uuid*, so it's not a good practice to return _id after object creation since  it's generated db-side and returned to you only when needed. Maybe it should be rewritten to explicitly get _id after object creation (which will slow down the whole process)
 * [CODE] Structure and improve application configuration (env variables -> configuration file -> k\v configuration service)
 * [CODE] Improve in-app logging (*JSON* format?) and feedback for the client (eg. *JSON* payload validation errors in addition to *400* response code).
 * [CODE] Implement durable logic to maintain *MongoDB* session (some of mgo's calls can cause panic, so it kinda works fine out-of-the-box, but for production, usage can be slightly improved). Also, get rid of *service ordering* requirement by implementing verbose *retries* and *circuit breakers* when talking with *MongoDB*

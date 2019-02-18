@@ -9,6 +9,16 @@ import (
 	"gitlab.com/hatemosphere/API-Exercise/solution/api/models"
 )
 
+const (
+	PassengerNotFoundMessage  = "Passenger not found"
+	PassengersNotFoundMessage = "Passengers not found"
+	IDFieldIsIncorrectMessage = "_id field is incorrect"
+)
+
+var (
+	EmptyByteSliceMessage []byte
+)
+
 func List(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
 	var passengers []models.Passenger
@@ -17,7 +27,7 @@ func List(c *gin.Context) {
 	if err != nil {
 		c.Error(err)
 		if err == mgo.ErrNotFound {
-			c.JSON(http.StatusNotFound, "Passengers not found")
+			c.JSON(http.StatusNotFound, PassengersNotFoundMessage)
 			return
 		}
 	}
@@ -48,7 +58,7 @@ func GetOne(c *gin.Context) {
 
 	var passenger models.Passenger
 	if !bson.IsObjectIdHex(c.Param("_id")) {
-		c.JSON(http.StatusUnprocessableEntity, "_id field is incorrect")
+		c.JSON(http.StatusUnprocessableEntity, IDFieldIsIncorrectMessage)
 		return
 	}
 	oID := bson.ObjectIdHex(c.Param("_id"))
@@ -56,7 +66,7 @@ func GetOne(c *gin.Context) {
 	if err != nil {
 		c.Error(err)
 		if err == mgo.ErrNotFound {
-			c.JSON(http.StatusNotFound, "Passenger not found")
+			c.JSON(http.StatusNotFound, PassengerNotFoundMessage)
 			return
 		}
 	}
@@ -68,7 +78,7 @@ func Delete(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
 
 	if !bson.IsObjectIdHex(c.Param("_id")) {
-		c.JSON(http.StatusUnprocessableEntity, "_id field is incorrect")
+		c.JSON(http.StatusUnprocessableEntity, IDFieldIsIncorrectMessage)
 		return
 	}
 	oID := bson.ObjectIdHex(c.Param("_id"))
@@ -77,7 +87,7 @@ func Delete(c *gin.Context) {
 		c.Error(err)
 	}
 
-	c.Data(http.StatusNoContent, "application/json", make([]byte, 0))
+	c.Data(http.StatusNoContent, "application/json", EmptyByteSliceMessage)
 }
 
 func Update(c *gin.Context) {
@@ -91,7 +101,7 @@ func Update(c *gin.Context) {
 	}
 
 	if !bson.IsObjectIdHex(c.Param("_id")) {
-		c.JSON(http.StatusUnprocessableEntity, "_id field is incorrect")
+		c.JSON(http.StatusUnprocessableEntity, IDFieldIsIncorrectMessage)
 		return
 	}
 	query := bson.M{"_id": bson.ObjectIdHex(c.Param("_id"))}
@@ -110,5 +120,5 @@ func Update(c *gin.Context) {
 		c.Error(err)
 	}
 
-	c.Data(http.StatusOK, "application/json", make([]byte, 0))
+	c.Data(http.StatusOK, "application/json", EmptyByteSliceMessage)
 }
