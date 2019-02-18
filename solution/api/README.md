@@ -1,6 +1,6 @@
 ### Preface
 
-So since I'm not usually coding APIs from scratch, this was a kind of exploration mission for me. Since the requirements for API weren't that strict, I have made a couple of assumptions and subjeсtive decisions:
+So since I'm not usually coding APIs from scratch, this was a kind of exploration mission for me. As you can see below, I have made a couple of assumptions and subjeсtive decisions:
 
 * All *Passenger* struct fields are required, so it's impossible to create a new passenger without filling out every field. Also, according to RFC, PUT should replace the whole object, so here we're also making all object fields required. In the ideal scenario the validation logging should be improved (see *Potential Improvements*)
 
