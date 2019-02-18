@@ -28,7 +28,7 @@ spec:
         envFrom:
         - configMapRef:
             name: global-config
-        image: hatemospher3/api-passengers:0.0.4
+        image: hatemospher3/api-passengers:0.0.5
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
