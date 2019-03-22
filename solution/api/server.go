@@ -5,6 +5,7 @@ import (
 	"gitlab.com/hatemosphere/API-Exercise/solution/api/db"
 	"gitlab.com/hatemosphere/API-Exercise/solution/api/handlers/passengers"
 	"gitlab.com/hatemosphere/API-Exercise/solution/api/middlewares"
+	_ "go.uber.org/automaxprocs"
 )
 
 const (
